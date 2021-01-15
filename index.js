@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 const iota = composeAPI.composeAPI({
-    provider: 'https://nodes.devnet.iota.org:443'
+    provider: 'https://nodes.thetangle.org:443'
 });
 
 app.get('/', function (req, res) {
