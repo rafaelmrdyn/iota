@@ -20,7 +20,7 @@ app.get('/', function (req, res) {
     res.send('iota core apis!!!')
 });
 
-app.get('/balances/:address', async function (req, res) {
+app.get('/balance/:address', async function (req, res) {
     try {
         const { balances } = await iota.getBalances([req.params.address])
         res.send({ balance: balances[0] })
