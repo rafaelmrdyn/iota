@@ -17,10 +17,10 @@ const iota = composeAPI.composeAPI({
 });
 
 app.get('/', function (req, res) {
-    res.send('iota core apis!!!')
+    res.sendFile(__dirname + '/public/index.html');
 });
 
-app.get('/balance/:address', async function (req, res) {
+app.get('/api/balance/:address', async function (req, res) {
     try {
         const { balances } = await iota.getBalances([req.params.address])
         res.send({ balance: balances[0] })
@@ -31,7 +31,7 @@ app.get('/balance/:address', async function (req, res) {
     }
 });
 
-app.get('/transactions/:address', async function (req, res) {
+app.get('/api/transactions/:address', async function (req, res) {
     try {
         const transactions = await iota.findTransactionObjects({ addresses: [req.params.address] })
         res.send({ transactions })
