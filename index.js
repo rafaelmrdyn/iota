@@ -23,7 +23,7 @@ app.get('/', function (req, res) {
 app.get('/balances/:address', async function (req, res) {
     try {
         const { balances } = await iota.getBalances([req.params.address])
-        res.send({ balances })
+        res.send({ balance: balances[0] })
     } catch (err) {
         res.status(400).send({
             message: err.message
